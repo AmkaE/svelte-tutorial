@@ -20,7 +20,7 @@
 				rating: +rating,
 			};
 
-			FeedbackStore.update(currFeedback => [newFeedback, ...currFeedback]);
+			FeedbackStore.addFeedback(newFeedback);
 
 			text = '';
 			message = '';

@@ -5,13 +5,17 @@
 	export let avarage = 0;
 
 	$: total = $FeedbackStore.length;
-	$: avarage =
-		$FeedbackStore.reduce((prevVal, item) => prevVal + item.rating, 0) / total;
+
+	$: avarage = parseFloat(
+		($FeedbackStore.reduce((prevVal, item) => prevVal + item.rating, 0) / total)
+			.toFixed(1)
+			.replace(/[.,]0$/, ''),
+	);
 </script>
 
 <div class="feedback-stats">
 	<h4>{total} Reviews</h4>
-	<h4>Avarage Rating: {Number.isNaN(avarage) ? 0 : avarage}</h4>
+	<h4>Avarage Rating: {isNaN(avarage) ? 0 : avarage}</h4>
 </div>
 
 <style>

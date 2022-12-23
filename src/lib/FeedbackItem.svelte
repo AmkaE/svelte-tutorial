@@ -5,7 +5,7 @@
 	export let item = {};
 
 	const handleDelete = itemId => {
-		FeedbackStore.update(items => items.filter(item => item.id !== itemId));
+		FeedbackStore.deleteFeedback(itemId);
 	};
 </script>
 
